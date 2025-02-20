@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
-import theme from './theme';
 import logo from '@/assets/logos/logo_wible_lg.svg';
 import logoSm from '@/assets/logos/logo_wible_sm.svg';
+import { css } from '@emotion/react';
+import theme from './theme';
 
 const HeaderStyles = css`
   /* 기본 헤더 스타일 (데스크톱 기본) */

@@ -3,18 +3,14 @@ import HeaderStyles from '@/styles/HeaderStyles';
 const Header = ({ children }) => {
   return (
     <header css={HeaderStyles}>
-      <div className="inner">
-        {children}
-      </div>
+      <div className="inner">{children}</div>
     </header>
   );
 };
 
 // Logo 컴포넌트
 const Logo = () => {
-  return (
-    <a href="/" className="logo" />
-  );
+  return <a href="/" className="logo" />;
 };
 
 // Nav 컴포넌트
@@ -38,7 +34,6 @@ const Nav = () => {
     </nav>
   );
 };
-
 
 Header.Logo = Logo;
 Header.Nav = Nav;

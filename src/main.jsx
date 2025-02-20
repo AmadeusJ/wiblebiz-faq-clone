@@ -1,11 +1,11 @@
+import router from '@/router';
+import GlobalStyles from '@/styles/GlobalStyles';
+import theme from '@/styles/theme';
+import { Global, ThemeProvider } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import router from '@/router';
-import theme from '@/styles/theme';
-import { ThemeProvider, Global } from '@emotion/react';
-import { RouterProvider } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import GlobalStyles from '@/styles/GlobalStyles';
+import { RouterProvider } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
