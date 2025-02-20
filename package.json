@@ -6,11 +6,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "prepare": "husky install",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:staged": "lint-staged"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -44,6 +46,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.11.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "msw": "^2.7.0",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
