@@ -7,6 +7,7 @@ const DefaultLayout = () => {
       {/* Meta 설정 */}
       <Helmet>
         <title>Wiblebiz FAQ Clone</title>
+        <link rel="icon" href="/favicon.ico" />
       </Helmet>
 
       {/* Header 컴포넌트 설정 */}

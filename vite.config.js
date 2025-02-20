@@ -9,6 +9,7 @@ export default defineConfig({
       jsxImportSource: '@emotion/react', // Emotion의 `css` prop 활성화
     }),
   ],
+  publicDir: 'public',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'), // 절대 경로 설정
