@@ -11,6 +11,8 @@ const theme = {
 
   // Colors
   colors: {
+    white: '#fff',
+    black: '#000',
     mint900: '#70d7bf',
     mint700: '#8ddfcc',
     midnight900: '#05141f',
@@ -80,6 +82,7 @@ const theme = {
     sidePadding: '48px',
     bottomPadding: '96px',
     searchBarWidth: '480px',
+    headerMaxWidth: '1200px',
   },
 
   // Transitions

@@ -13,6 +13,9 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  features: {
+    emotionAlias: false,
+  },
   viteFinal: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,

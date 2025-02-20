@@ -1,17 +1,17 @@
-import GlobalStyles from '@/styles/GlobalStyles';
-import theme from '@/styles/theme';
-import { ThemeProvider } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import router from '@/router';
+import theme from '@/styles/theme';
+import { ThemeProvider, Global } from '@emotion/react';
+import { RouterProvider } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import App from './App';
-
+import GlobalStyles from '@/styles/GlobalStyles';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
       <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <App />
+        <Global styles={GlobalStyles} />
+        <RouterProvider router={router} />
       </ThemeProvider>
     </HelmetProvider>
   </React.StrictMode>

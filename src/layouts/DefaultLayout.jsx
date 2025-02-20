@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Outlet } from 'react-router-dom';
+import Header from '@/components/layout/Header';
 
 const DefaultLayout = () => {
   return (
@@ -11,10 +12,21 @@ const DefaultLayout = () => {
       </Helmet>
 
       {/* Header 컴포넌트 설정 */}
-      <header>Header</header>
+      <Header>
+        <Header.Logo />
+        <Header.Nav />
+      </Header>
 
       {/* 라우터 컴포넌트 설정 */}
-      <main>
+      <main
+        css={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+        }}
+      >
         <Outlet />
       </main>
 
