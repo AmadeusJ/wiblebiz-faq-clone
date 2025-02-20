@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      
+
       - name: Install dependencies with Yarn Berry
         run: yarn install --immutable
 
@@ -31,11 +31,11 @@ jobs:
         run: yarn install --immutable
 
       - name: Run Prettier check
-        run: yarn prettier --check
+        run: yarn format:check
 
   deploy:
     name: Deploy to Vercel
-    needs: [ lint, format-check ]
+    needs: [lint, format-check]
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:

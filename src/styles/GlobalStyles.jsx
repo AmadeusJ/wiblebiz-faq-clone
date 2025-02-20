@@ -1,5 +1,5 @@
 // Global 스타일 적용
-import { css, Global, useTheme } from "@emotion/react";
+import { css, Global, useTheme } from '@emotion/react';
 
 const GlobalStyles = () => {
   const theme = useTheme();
@@ -12,19 +12,19 @@ const GlobalStyles = () => {
           font-display: swap;
           font-family: Kia Signature Fix;
           font-weight: 300;
-          src: url("/fonts/KiaSignatureFixLight.woff2") format("woff2");
+          src: url('/fonts/KiaSignatureFixLight.woff2') format('woff2');
         }
         @font-face {
           font-display: swap;
           font-family: Kia Signature Fix;
           font-weight: 400;
-          src: url("/fonts/KiaSignatureFixRegular.woff2") format("woff2");
+          src: url('/fonts/KiaSignatureFixRegular.woff2') format('woff2');
         }
         @font-face {
           font-display: swap;
           font-family: Kia Signature Fix;
           font-weight: 600;
-          src: url("/fonts/KiaSignatureFixBold.woff2") format("woff2");
+          src: url('/fonts/KiaSignatureFixBold.woff2') format('woff2');
         }
         /* Reset & Box Model */
         * {
@@ -46,7 +46,7 @@ const GlobalStyles = () => {
         body {
           height: 100%;
           min-width: 360px;
-          font-family: "Kia Signature Fix", sans-serif;
+          font-family: 'Kia Signature Fix', sans-serif;
           font-size: ${theme.typography.fontSize.md};
           line-height: ${theme.typography.lineHeight.md};
           background-color: ${theme.colors.gray50};
@@ -84,8 +84,8 @@ const GlobalStyles = () => {
         }
         ${theme.responsive.laptop} {
           html {
-              font-size: 18px;
-            }
+            font-size: 18px;
+          }
         }
       `}
     />
