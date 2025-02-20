@@ -2,7 +2,6 @@
   "name": "wiblebiz-faq-clone",
   "private": true,
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -55,5 +54,6 @@
     "workerDirectory": [
       "public"
     ]
-  }
+  },
+  "packageManager": "yarn@4.6.0"
 }

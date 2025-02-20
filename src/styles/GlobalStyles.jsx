@@ -18,7 +18,7 @@ const GlobalStyles = () => {
           font-display: swap;
           font-family: Kia Signature Fix;
           font-weight: 400;
-          src: url("/KiaSignatureFixRegular.woff2") format("woff2");
+          src: url("/fonts/KiaSignatureFixRegular.woff2") format("woff2");
         }
         @font-face {
           font-display: swap;
