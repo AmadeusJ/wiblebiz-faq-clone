@@ -91,4 +91,4 @@ pre-commit:
     #   run: npx prettier --write {staged_files}
 
     - name: lint-staged
-      run: npx lint-staged
+      run: yarn lint-staged
