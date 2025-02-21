@@ -1,8 +1,7 @@
-import HeaderStyles from '@/styles/HeaderStyles';
 // Header 컴포넌트
 const Header = ({ children }) => {
   return (
-    <header css={HeaderStyles}>
+    <header>
       <div className="inner">{children}</div>
     </header>
   );

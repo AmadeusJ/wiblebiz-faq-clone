@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 // Logos
-// import logoAppstore from '@/assets/logos/logo_appstore.svg';
-// import logoGoogleplay from '@/assets/logos/logo_googleplay.svg';
-// import logoKia from '@/assets/logos/logo_kia.svg';
-// import logoWibleLg from '@/assets/logos/logo_wible_lg.svg';
-// import logoWibleSm from '@/assets/logos/logo_wible_sm.svg';
+import logoAppstore from '@/assets/logos/logo_appstore.svg';
+import logoGoogleplay from '@/assets/logos/logo_googleplay.svg';
+import logoKia from '@/assets/logos/logo_kia.svg';
+import logoWibleLg from '@/assets/logos/logo_wible_lg.svg';
+import logoWibleSm from '@/assets/logos/logo_wible_sm.svg';
 
 // Icons
 import icArrow from '@/assets/icons/ic_arrow.svg';
@@ -879,7 +879,7 @@ const WibleBizStyles = css`
     header .logo {
       width: 120px;
       height: 40px;
-      background-image: url(../images/logo_wible_sm.svg);
+      background-image: url(${logoWibleSm});
     }
     header nav {
       position: fixed;
@@ -979,7 +979,7 @@ const WibleBizStyles = css`
     header .logo {
       width: 160px;
       height: 100%;
-      background-image: url(../images/logo_wible_lg.svg);
+      background-image: url(${logoWibleLg});
     }
     header nav {
       flex: 1;
@@ -1189,7 +1189,7 @@ const WibleBizStyles = css`
   footer .copyright:before {
     content: '';
     display: block;
-    background-image: url(../images/logo_kia.svg);
+    background-image: url(${logoKia});
     background-repeat: no-repeat;
     background-size: auto 100%;
   }
@@ -2118,10 +2118,10 @@ const WibleBizStyles = css`
     background-size: auto 100%;
   }
   .app-info > a.gp:before {
-    background-image: url(../images/logo_googleplay.svg);
+    background-image: url(${logoGoogleplay});
   }
   .app-info > a.as:before {
-    background-image: url(../images/logo_appstore.svg);
+    background-image: url(${logoAppstore});
   }
   @media (max-width: 743px) {
     .app-info {
@@ -2448,14 +2448,6 @@ const WibleBizStyles = css`
     border-top: 1px solid var(--gray-100);
     overflow-x: scroll;
   }
-  .faq-list > li:not(.show):not(.ing) > .q {
-    display: none;
-  }
-  .faq-list > li.ing > .q {
-    overflow: hidden;
-    height: 0;
-    transition: height 0.6s var(--cubic-bezier-primary);
-  }
 
   /* Gallery List */
   .gallery-list {
@@ -2488,7 +2480,7 @@ const WibleBizStyles = css`
     top: 0;
     width: 100%;
     height: 100%;
-    background: url(../images/logo_wible_lg.svg) no-repeat 50%;
+    background: url(${logoWibleLg}) no-repeat 50%;
     opacity: 0.2;
   }
   .gallery-list .thumb > img {

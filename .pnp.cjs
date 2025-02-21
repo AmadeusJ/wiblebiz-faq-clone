@@ -52,6 +52,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:4.6.2"],\
           ["eslint-plugin-react-refresh", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:0.4.19"],\
           ["eslint-plugin-storybook", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:0.11.3"],\
+          ["framer-motion", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:12.4.7"],\
           ["husky", "npm:9.1.7"],\
           ["lint-staged", "npm:15.4.3"],\
           ["msw", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:2.7.0"],\
@@ -4620,6 +4621,39 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["framer-motion", [\
+      ["npm:12.4.7", {\
+        "packageLocation": "../../../.yarn/berry/cache/framer-motion-npm-12.4.7-1c6206a64d-10c0.zip/node_modules/framer-motion/",\
+        "packageDependencies": [\
+          ["framer-motion", "npm:12.4.7"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:12.4.7", {\
+        "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-957e1f256b/4/.yarn/berry/cache/framer-motion-npm-12.4.7-1c6206a64d-10c0.zip/node_modules/framer-motion/",\
+        "packageDependencies": [\
+          ["framer-motion", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:12.4.7"],\
+          ["@emotion/is-prop-valid", null],\
+          ["@types/emotion__is-prop-valid", null],\
+          ["@types/react", "npm:18.3.18"],\
+          ["@types/react-dom", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:18.3.5"],\
+          ["motion-dom", "npm:12.4.5"],\
+          ["motion-utils", "npm:12.0.0"],\
+          ["react", "npm:19.0.0"],\
+          ["react-dom", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:19.0.0"],\
+          ["tslib", "npm:2.8.1"]\
+        ],\
+        "packagePeers": [\
+          "@emotion/is-prop-valid",\
+          "@types/emotion__is-prop-valid",\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["fs-minipass", [\
       ["npm:3.0.3", {\
         "packageLocation": "../../../.yarn/berry/cache/fs-minipass-npm-3.0.3-d148d6ac19-10c0.zip/node_modules/fs-minipass/",\
@@ -6055,6 +6089,25 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/mkdirp-npm-3.0.1-f94bfa769e-10c0.zip/node_modules/mkdirp/",\
         "packageDependencies": [\
           ["mkdirp", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["motion-dom", [\
+      ["npm:12.4.5", {\
+        "packageLocation": "../../../.yarn/berry/cache/motion-dom-npm-12.4.5-1a48e42d16-10c0.zip/node_modules/motion-dom/",\
+        "packageDependencies": [\
+          ["motion-dom", "npm:12.4.5"],\
+          ["motion-utils", "npm:12.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["motion-utils", [\
+      ["npm:12.0.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/motion-utils-npm-12.0.0-452fbe000e-10c0.zip/node_modules/motion-utils/",\
+        "packageDependencies": [\
+          ["motion-utils", "npm:12.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8359,6 +8412,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:4.6.2"],\
           ["eslint-plugin-react-refresh", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:0.4.19"],\
           ["eslint-plugin-storybook", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:0.11.3"],\
+          ["framer-motion", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:12.4.7"],\
           ["husky", "npm:9.1.7"],\
           ["lint-staged", "npm:15.4.3"],\
           ["msw", "virtual:baf47e6ee4c1d04fb2d45d7308c0e0fbfa1f865563cfc553f0f4167c622ad7c02b8e4d520857b9157fe363c5d6fc91b3f51c9429ad14f30e3ee803e8de509e7d#npm:2.7.0"],\
