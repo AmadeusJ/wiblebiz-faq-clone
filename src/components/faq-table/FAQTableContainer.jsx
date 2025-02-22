@@ -70,19 +70,7 @@ const FAQTableContainer = () => {
     console.log('🔍 카테고리 변경 실행! ', category);
     setSelectedCategory(category);
     setSelectedFilter('All');
-    // 카테고리 변경 시 모든 FAQ 데이터 삭제
-    queryClient.removeQueries({
-      queryKey: ['faq'],
-      exact: false,
-    });
-
-    // 2. FAQ 상태 초기화
-    queryClient.setQueryData(['faq'], {
-      pages: [{ pageInfo: {}, items: [] }],
-      pageParams: [0],
-    });
-
-    setFaqData(null);
+    resetFaqData();
     refetchFaqCategory();
     refetchFaq();
   }, []);
@@ -91,8 +79,22 @@ const FAQTableContainer = () => {
   const handleFilterChange = useCallback((filter) => {
     console.log('🔍 필터 변경 실행! ', filter);
     setSelectedFilter(filter);
+    resetFaqData();
     setActiveIndex(-1);
     refetchFaq();
+  }, []);
+
+  const resetFaqData = useCallback(() => {
+    queryClient.removeQueries({
+      queryKey: ['faq'],
+      exact: false,
+    });
+
+    queryClient.setQueryData(['faq'], {
+      pages: [{ pageInfo: {}, items: [] }],
+      pageParams: [0],
+    });
+    setFaqData(null);
   }, []);
 
   return (

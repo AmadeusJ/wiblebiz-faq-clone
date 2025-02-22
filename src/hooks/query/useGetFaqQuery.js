@@ -23,12 +23,10 @@ export const useGetFaqQuery = ({
     queryFn: ({ pageParam = 0 }) =>
       getFaq({ limit, offset: pageParam, tab, faqCategoryID, question }),
     getNextPageParam: (lastPage) => {
-      const { nextOffset, totalRecord, limit } = lastPage.pageInfo;
+      const { nextOffset, totalRecord, limit, offset } = lastPage.pageInfo;
 
       // 다음 데이터가 존재하는 경우에만 nextOffset 반환
-      return nextOffset < totalRecord && nextOffset + limit <= totalRecord
-        ? nextOffset
-        : undefined;
+      return offset + limit < totalRecord ? nextOffset : undefined;
     },
     select: (data) => {
       console.log('🔍 훅 응답 faq:', data);

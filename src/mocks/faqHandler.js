@@ -21,7 +21,7 @@ export const faqHandler = http.get('/api/faq', async ({ request }) => {
         CONTRACT: '계약',
       },
       USAGE: {
-        SIGN_UP: '가입',
+        SIGN_UP: '가입문의',
         BUSINESS: '비즈니스(업무용)',
         ACCIDENT: '사고/보험',
         RESERVATION: '예약/결제',
@@ -33,7 +33,11 @@ export const faqHandler = http.get('/api/faq', async ({ request }) => {
 
     const filterValue = categoryMapping[tab]?.[faqCategoryID];
     if (filterValue) {
-      faqs = faqs.filter((faq) => faq.subCategoryName === filterValue);
+      if (tab === 'CONSULT') {
+        faqs = faqs.filter((faq) => faq.subCategoryName === filterValue);
+      } else {
+        faqs = faqs.filter((faq) => faq.categoryName === filterValue);
+      }
     }
   }
 
@@ -46,7 +50,9 @@ export const faqHandler = http.get('/api/faq', async ({ request }) => {
   }
 
   const totalRecord = faqs.length;
+  console.log('current faqs: ', faqs, faqs.length);
   const pagedItems = faqs.slice(offset, offset + limit);
+  console.log('pagedItems: ', pagedItems, pagedItems.length);
   const prevOffset = offset - limit < 0 ? 0 : offset - limit;
   const nextOffset = offset + limit < totalRecord ? offset + limit : 0;
 
