@@ -1,3 +1,4 @@
+import Icon from '@/components/ui/Icon';
 const Process = ({ title, processItems = [] }) => {
   return (
     <>
@@ -18,6 +19,7 @@ const Process = ({ title, processItems = [] }) => {
 const ProcessItem = ({ item, ...props }) => {
   return (
     <li {...props}>
+      <Icon name={item.icon} />
       <span>
         <strong>{item.title}</strong>
         <em>{item.description}</em>

@@ -1,3 +1,4 @@
+import Icon from '@/components/ui/Icon';
 const Inquiry = ({ title, inquiryItems = [] }) => {
   return (
     <>
@@ -21,7 +22,8 @@ const Inquiry = ({ title, inquiryItems = [] }) => {
 const InquiryItem = ({ children, icon, ...props }) => {
   return (
     <a className="btn-xxlg btn-tertiary" {...props}>
-      {icon && <i className={`ic ${icon}`}></i>}
+      {/* {icon && <i className={`ic ${icon}`}></i>} */}
+      <Icon name={icon} />
       <span>{children}</span>
     </a>
   );

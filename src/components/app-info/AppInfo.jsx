@@ -1,3 +1,5 @@
+import Icon from '@/components/ui/Icon';
+
 const AppInfo = ({ items = [] }) => {
   return (
     <div className="app-info">
@@ -26,6 +28,7 @@ const AppInfoTitle = () => {
 const AppInfoItem = ({ item, ...props }) => {
   return (
     <a {...props} target="_blank" rel="noreferrer">
+      <Icon name={item.icon} />
       {item.title}
     </a>
   );

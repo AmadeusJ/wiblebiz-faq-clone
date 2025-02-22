@@ -132,7 +132,7 @@ const HeaderStyles = css`
   }
 
   /* 노트북 (min-width: 1024px and max-width: 1439px) */
-  ${theme.responsive.laptop} {
+  ${theme.responsive.tablet} {
     & .logo {
       width: 160px;
       height: 100%;
@@ -183,15 +183,15 @@ const HeaderStyles = css`
     }
   }
 
-  /* 데스크톱 (min-width: 1440px) */
-  ${theme.responsive.desktop} {
+  /* 데스크톱 (min-width: 1024px) */
+  ${theme.responsive.laptop} {
     & .logo {
       width: 180px; /* 데스크톱에서는 조금 더 크게 */
       height: 100%;
       background-image: url(${logo});
     }
     & nav {
-      flex: 1;
+      flex: 1 1;
       margin-right: -20px;
     }
     & nav > ul {

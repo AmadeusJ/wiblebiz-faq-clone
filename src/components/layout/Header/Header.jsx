@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 // Header 컴포넌트
 const Header = ({ children }) => {
   return (
@@ -9,25 +10,27 @@ const Header = ({ children }) => {
 
 // Logo 컴포넌트
 const Logo = () => {
-  return <a href="/" className="logo" />;
+  const navigate = useNavigate();
+  return <a onClick={() => navigate('/')} className="logo" />;
 };
 
 // Nav 컴포넌트
 const Nav = () => {
+  const navigate = useNavigate();
   return (
     <nav>
       <ul>
         <li>
-          <a href="/">서비스 소개</a>
+          <a onClick={() => navigate('/')}>서비스 소개</a>
         </li>
         <li className="active">
-          <a href="/">자주 묻는 질문</a>
+          <a onClick={() => navigate('/')}>자주 묻는 질문</a>
         </li>
         <li>
-          <a href="/">새소식</a>
+          <a onClick={() => navigate('/')}>새소식</a>
         </li>
         <li>
-          <a href="/">상담문의</a>
+          <a onClick={() => navigate('/')}>상담문의</a>
         </li>
       </ul>
     </nav>

@@ -1,20 +1,10 @@
 import { css } from '@emotion/react';
-// Logos
-import logoAppstore from '@/assets/logos/logo_appstore.svg';
-import logoGoogleplay from '@/assets/logos/logo_googleplay.svg';
-import logoKia from '@/assets/logos/logo_kia.svg';
-import logoWibleLg from '@/assets/logos/logo_wible_lg.svg';
-import logoWibleSm from '@/assets/logos/logo_wible_sm.svg';
-
 // Icons
-import icArrow from '@/assets/icons/ic_arrow.svg';
 import icDownload from '@/assets/icons/ic_download.svg';
 import icProcess01 from '@/assets/icons/ic_process01.svg';
 import icProcess02 from '@/assets/icons/ic_process02.svg';
 import icProcess03 from '@/assets/icons/ic_process03.svg';
 import icProcess04 from '@/assets/icons/ic_process04.svg';
-import icSearch from '@/assets/icons/ic_search.svg';
-import icStepArrow from '@/assets/icons/ic_step_arrow.svg';
 import icTalk from '@/assets/icons/ic_talk.svg';
 import icTop from '@/assets/icons/ic_top.svg';
 import icWrite from '@/assets/icons/ic_write.svg';
@@ -587,8 +577,8 @@ const WibleBizStyles = css`
   }
   select {
     padding-right: var(--input-md);
-    background: url(${icArrow}) no-repeat right calc(var(--space-sm2) * 0.6) top
-      50%;
+    background: url(/icons/ic_arrow.svg) no-repeat right
+      calc(var(--space-sm2) * 0.6) top 50%;
     background-size: auto calc(var(--input-md) * 0.42);
   }
   textarea {
@@ -879,7 +869,7 @@ const WibleBizStyles = css`
     header .logo {
       width: 120px;
       height: 40px;
-      background-image: url(${logoWibleSm});
+      background-image: url(/logos/logo_wible_sm.svg);
     }
     header nav {
       position: fixed;
@@ -979,7 +969,7 @@ const WibleBizStyles = css`
     header .logo {
       width: 160px;
       height: 100%;
-      background-image: url(${logoWibleLg});
+      background-image: url(/logos/logo_wible_lg.svg);
     }
     header nav {
       flex: 1;
@@ -1189,7 +1179,7 @@ const WibleBizStyles = css`
   footer .copyright:before {
     content: '';
     display: block;
-    background-image: url(${logoKia});
+    background-image: url(/logos/logo_kia.svg);
     background-repeat: no-repeat;
     background-size: auto 100%;
   }
@@ -2023,7 +2013,7 @@ const WibleBizStyles = css`
     top: 0;
     width: 24px;
     height: 24px;
-    background: url(${icStepArrow}) no-repeat;
+    background: url(/icons/ic_step_arrow.svg) no-repeat;
     background-size: auto 100%;
   }
   .process-info > li > span > strong {
@@ -2116,12 +2106,6 @@ const WibleBizStyles = css`
     margin-right: 4px;
     background-repeat: no-repeat;
     background-size: auto 100%;
-  }
-  .app-info > a.gp:before {
-    background-image: url(${logoGoogleplay});
-  }
-  .app-info > a.as:before {
-    background-image: url(${logoAppstore});
   }
   @media (max-width: 743px) {
     .app-info {
@@ -2262,7 +2246,7 @@ const WibleBizStyles = css`
     content: '';
     width: var(--ic-md);
     height: var(--ic-md);
-    background: url(${icSearch}) no-repeat;
+    background: url(/icons/ic_search.svg) no-repeat;
     background-size: auto 100%;
   }
   .search-info {
@@ -2381,7 +2365,7 @@ const WibleBizStyles = css`
     right: calc((var(--px-xlg) - var(--ic-md)) / 2);
     width: var(--ic-md);
     height: var(--ic-md);
-    background: url(${icArrow}) no-repeat;
+    background: url(/icons/ic_arrow.svg) no-repeat;
     background-size: auto 100%;
     transition: transform 0.4s var(--cubic-bezier-primary);
   }
@@ -2423,7 +2407,7 @@ const WibleBizStyles = css`
       width: 16px;
       height: 16px;
       margin: 0 4px;
-      background: url(${icArrow}) no-repeat;
+      background: url(/icons/ic_arrow.svg) no-repeat;
       background-size: auto 100%;
       transform: rotate(-90deg);
       opacity: 0.3;
@@ -2480,7 +2464,7 @@ const WibleBizStyles = css`
     top: 0;
     width: 100%;
     height: 100%;
-    background: url(${logoWibleLg}) no-repeat 50%;
+    background: url(/logos/logo_wible_lg.svg) no-repeat 50%;
     opacity: 0.2;
   }
   .gallery-list .thumb > img {
@@ -2717,7 +2701,7 @@ const WibleBizStyles = css`
     width: var(--ic-sm);
     height: var(--ic-sm);
     margin-left: 2px;
-    background: url(${icArrow}) no-repeat;
+    background: url(/icons/ic_arrow.svg) no-repeat;
     background-size: auto 100%;
     transition: transform 0.4s var(--cubic-bezier-primary);
   }

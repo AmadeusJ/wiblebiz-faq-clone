@@ -55,7 +55,8 @@
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "storybook": "^8.5.1",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-svgr": "^4.3.0"
   },
   "msw": {
     "workerDirectory": [
