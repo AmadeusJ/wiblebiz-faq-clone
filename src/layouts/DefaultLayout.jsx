@@ -1,4 +1,6 @@
+import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
+import LayoutContainer from '@/components/layout/LayoutContainer';
 import { Helmet } from 'react-helmet-async';
 import { Outlet } from 'react-router-dom';
 
@@ -18,20 +20,17 @@ const DefaultLayout = () => {
       </Header>
 
       {/* 라우터 컴포넌트 설정 */}
-      <main
-        css={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          height: '100%',
-          overflow: 'hidden',
-        }}
-      >
+      <LayoutContainer>
         <Outlet />
-      </main>
+      </LayoutContainer>
 
       {/* Footer 컴포넌트 설정 */}
-      <footer>Footer</footer>
+      <Footer>
+        <Footer.Information>
+          <Footer.Address />
+        </Footer.Information>
+        <Footer.CopyRight />
+      </Footer>
     </>
   );
 };
