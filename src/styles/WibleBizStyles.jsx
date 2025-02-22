@@ -1085,7 +1085,7 @@ const WibleBizStyles = css`
     background-image: url(../images/ic_share.svg);
   }
   .quick-util > .inner > button.top {
-    background-image: url(../images/ic_top.svg);
+    background-image: url(${icTop});
   }
   body:not(.main) .quick-util:not(.active) > .inner > button.top,
   body.main .container[data-ui-current='0'] ~ .quick-util > .inner > button.top,
