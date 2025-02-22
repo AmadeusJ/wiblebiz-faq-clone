@@ -19,7 +19,7 @@ export const useGetFaqCategoryQuery = (tab = 'CONSULT') => {
     },
     // placeholderData를 통해 로딩 전 기본값 제공 (빈 배열 등)
     placeholderData: [],
-    staleTime: 1000 * 60 * 3, // 3분
-    cacheTime: 1000 * 60 * 5, // 5분
+    // staleTime: 1000 * 60 * 3, // 3분
+    // cacheTime: 1000 * 60 * 5, // 5분
   });
 };

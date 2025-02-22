@@ -18,7 +18,7 @@ export const useFAQTableContext = () => {
 const FAQTable = ({ children }) => {
   const [searchValue, setSearchValue] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('CONSULT');
-  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedFilter, setSelectedFilter] = useState('All');
   const [selectedFaq, setSelectedFaq] = useState(null);
   return (
     <FAQTableContext.Provider
@@ -27,8 +27,8 @@ const FAQTable = ({ children }) => {
         setSearchValue,
         selectedCategory,
         setSelectedCategory,
-        selectedFilters,
-        setSelectedFilters,
+        selectedFilter,
+        setSelectedFilter,
         selectedFaq,
         setSelectedFaq,
       }}
@@ -44,12 +44,15 @@ const FAQTableCategory = ({ children }) => {
 };
 
 // 카테고리 탭
-const FAQTableCategoryTab = ({ children, value }) => {
-  const { selectedCategory, setSelectedCategory } = useFAQTableContext();
+const FAQTableCategoryTab = ({ children, value, onClick = () => {} }) => {
+  const { selectedCategory, setSelectedCategory, setSelectedFilter } =
+    useFAQTableContext();
 
   // 클릭 핸들러 수정 (상태 업데이트 확인)
   const handleCategoryChange = (newCategory) => {
     setSelectedCategory(newCategory);
+    setSelectedFilter('All');
+    onClick(newCategory);
   };
   return (
     <li
@@ -64,35 +67,75 @@ const FAQTableCategoryTab = ({ children, value }) => {
 };
 
 // 검색 컴포넌트
-const FAQTableSearch = ({ onSearch, children }) => {
+const FAQTableSearch = ({ onSearch, children, setHasSearch = () => {} }) => {
   const { searchValue, setSearchValue } = useFAQTableContext();
+  const handleSearch = () => {
+    console.log('🔍 searchValue:', searchValue);
+    onSearch(searchValue);
+    setHasSearch(true);
+  };
   return (
-    <InputField
-      value={searchValue}
-      onChange={setSearchValue}
-      placeholder="찾으시는 내용을 입력해 주세요"
-    >
-      <InputField.Button className="submit" onClick={onSearch}>
-        검색
-      </InputField.Button>
-      {children}
-    </InputField>
+    <>
+      <InputField
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        placeholder="찾으시는 내용을 입력해 주세요"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleSearch();
+          }
+        }}
+      >
+        <InputField.Button className="submit" onClick={handleSearch}>
+          검색
+        </InputField.Button>
+        {children}
+      </InputField>
+    </>
+  );
+};
+
+const FAQTableSearchInfo = ({ totalRecord = 0, setHasSearch = () => {} }) => {
+  const { setSearchValue, setSelectedFilter } = useFAQTableContext();
+  const handleReset = () => {
+    setSearchValue('');
+    setHasSearch(false);
+    setSelectedFilter('All');
+  };
+  return (
+    <div className="search-info">
+      <h2 className="heading-info">
+        검색 결과 총 <em>{totalRecord}</em>건
+      </h2>
+      <button type="button" className="init" onClick={handleReset}>
+        검색초기화
+      </button>
+    </div>
   );
 };
 
 // 필터 컴포넌트
-const FAQTableFilter = ({ filters = [] }) => {
-  filters = [
-    { id: 1, label: '전체', value: 'All' },
-    { id: 2, label: '서비스 사용', value: 'Product' },
-  ];
+const FAQTableFilter = ({ filters = [], onFilterChange = () => {} }) => {
+  const { selectedFilter, setSelectedFilter } = useFAQTableContext();
+  const handleFilterChange = (newFilter) => {
+    setSelectedFilter(newFilter);
+    onFilterChange(newFilter);
+  };
   return (
     <div className="filter">
+      <FAQTable.FilterItem
+        value="All"
+        label="전체"
+        onClick={() => handleFilterChange('All')}
+        checked={selectedFilter === 'All'}
+      />
       {filters.map((filter) => (
         <FAQTable.FilterItem
           key={filter.id}
-          value={filter.id}
-          label={filter.label}
+          value={filter.categoryID}
+          label={filter.name}
+          onClick={() => handleFilterChange(filter.categoryID)}
+          checked={selectedFilter === filter.categoryID}
         />
       ))}
     </div>
@@ -100,44 +143,61 @@ const FAQTableFilter = ({ filters = [] }) => {
 };
 
 // 필터 아이템
-const FAQTableFilterItem = ({ value, label, ...props }) => {
-  const { selectedFilters, setSelectedFilters } = useFAQTableContext();
+const FAQTableFilterItem = ({
+  value,
+  label,
+  checked,
+  onClick = () => {},
+  ...props
+}) => {
   return (
     <label key={value} {...props}>
-      <input
-        type="radio"
-        name="filter"
-        checked={selectedFilters.includes(value)}
-        onChange={() => setSelectedFilters([...selectedFilters, value])}
-      />
+      <input type="radio" name="filter" checked={checked} onChange={onClick} />
       <i>{label}</i>
     </label>
   );
 };
 
-const FAQTableFaqList = ({ items = [] }) => {
-  items = [
-    '위블 비즈에서는 어떤 상품을 이용할 수 있나요?',
-    '위블 비즈 이용 요금은 어떻게 책정되나요?',
-    '위블 비즈 회원 가입은 어떻게 하나요?',
-  ];
-  return <AccordionPresenter items={items} />;
+const FAQTableFaqList = ({ faqs = [], activeIndex, setActiveIndex }) => {
+  console.log('🔍 faqs:', faqs);
+
+  return (
+    <AccordionPresenter
+      items={faqs}
+      activeIndex={activeIndex}
+      setActiveIndex={setActiveIndex}
+    />
+  );
+};
+
+const FAQTableLoadMore = ({ fetchNextPage, hasNextPage }) => {
+  return (
+    <>
+      {hasNextPage && (
+        <button className="list-more" onClick={fetchNextPage}>
+          <i></i>더보기
+        </button>
+      )}
+    </>
+  );
 };
 
 // 메인 컴포넌트에 추가
 FAQTable.Category = FAQTableCategory;
 FAQTable.CategoryTab = FAQTableCategoryTab;
 FAQTable.Search = FAQTableSearch;
+FAQTable.SearchInfo = FAQTableSearchInfo;
 FAQTable.Filter = FAQTableFilter;
 FAQTable.FilterItem = FAQTableFilterItem;
 FAQTable.FaqList = FAQTableFaqList;
-
+FAQTable.LoadMore = FAQTableLoadMore;
 // DisplayName 설정
 FAQTableCategory.displayName = 'FAQTable.Category';
 FAQTableCategoryTab.displayName = 'FAQTable.CategoryTab';
 FAQTableSearch.displayName = 'FAQTable.Search';
+FAQTableSearchInfo.displayName = 'FAQTable.SearchInfo';
 FAQTableFilter.displayName = 'FAQTable.Filter';
 FAQTableFilterItem.displayName = 'FAQTable.FilterItem';
 FAQTableFaqList.displayName = 'FAQTable.FaqList';
-
+FAQTableLoadMore.displayName = 'FAQTable.LoadMore';
 export default FAQTable;

@@ -1,5 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { Children, createContext, useContext, useState } from 'react';
+import {
+  Children,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 const AccordionContext = createContext();
 
@@ -12,53 +18,69 @@ export const useAccordionContext = () => {
 };
 
 // Accordion 메인 컴포넌트
-const Accordion = ({ children, defaultIndex = -1 }) => {
+const Accordion = ({
+  children,
+  defaultIndex = -1,
+  setActiveIndexFromParent = () => {},
+}) => {
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
 
+  useEffect(() => {
+    setActiveIndex(defaultIndex);
+  }, [defaultIndex]);
+
   // 클릭한 아이템이 열려있으면 닫고, 아니면 해당 인덱스의 아이템을 엽니다.
-  const onChangeIndex = (index) =>
+  const onChangeIndex = (index) => {
     setActiveIndex((currentIndex) => (currentIndex === index ? -1 : index));
+    setActiveIndexFromParent(index);
+  };
 
-  const items = Children.map(children, (child, index) => {
-    const isActive = activeIndex === index;
-    return (
-      <AccordionContext.Provider
-        key={index}
-        value={{ isActive, index, onChangeIndex }}
-      >
-        {child}
-      </AccordionContext.Provider>
-    );
-  });
+  return (
+    <ul className="faq-list">
+      {Children.map(children, (child, index) =>
+        child ? (
+          <AccordionContext.Provider
+            key={index}
+            value={{ isActive: activeIndex === index, index, onChangeIndex }}
+          >
+            {child}
+          </AccordionContext.Provider>
+        ) : null
+      )}
+    </ul>
+  );
+};
 
-  return <ul className="faq-list">{items}</ul>;
+// Accordion 아이템 컴포넌트 (Header + Panel 포함)
+const Item = ({ children }) => {
+  return <li className="faq-item">{children}</li>;
 };
 
 // Accordion 헤더 컴포넌트
-const Header = ({ children }) => {
+const Header = ({ category, subCategory, title }) => {
   const { isActive, index, onChangeIndex } = useAccordionContext();
 
   return (
-    <motion.li
-      className={`faq-item ${isActive ? 'active show' : 'ing'}`}
+    <motion.div
+      className={`faq-header ${isActive ? 'active' : ''}`}
       onClick={() => onChangeIndex(index)}
     >
       <h4 className="a">
         <button type="button" data-ui-click="dropdown-toggle">
-          <em>서비스 상품</em>
-          <strong>위블 비즈에서는 어떤 상품을 이용할 수 있나요?</strong>
+          <em>{category}</em>
+          {subCategory && <em>{subCategory}</em>}
+          <strong>{title}</strong>
         </button>
       </h4>
-      {children}
-    </motion.li>
+    </motion.div>
   );
 };
 
 // Accordion 패널 컴포넌트
-const Panel = ({ children }) => {
+const Panel = ({ content }) => {
   const { isActive } = useAccordionContext();
 
-  // 패널 컨테이너 애니메이션 variants: height와 opacity를 함께 조절
+  // 패널 컨테이너 애니메이션 variants
   const panelVariants = {
     open: {
       height: 'auto',
@@ -78,20 +100,6 @@ const Panel = ({ children }) => {
     },
   };
 
-  // 내부 콘텐츠 애니메이션 variants: 텍스트가 닫힐 때 약간 위로 이동하며 사라짐
-  const contentVariants = {
-    open: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.3, ease: [1, 0, 0.2, 1], delay: 0.2 },
-    },
-    closed: {
-      y: -10,
-      opacity: 0,
-      transition: { duration: 0.2, ease: [1, 0, 0.2, 1] },
-    },
-  };
-
   return (
     <AnimatePresence initial={false}>
       {isActive && (
@@ -104,22 +112,9 @@ const Panel = ({ children }) => {
           variants={panelVariants}
           style={{ overflow: 'hidden' }}
         >
-          <motion.div className="inner" variants={contentVariants}>
-            <p>
-              <span
-                css={{
-                  fontSize: '13px',
-                  color: 'rgba(106, 122, 135, 1)',
-                  wordBreak: 'keep-all',
-                }}
-              >
-                소속회사가 위블 비즈 이용 계약이 되어 있는 경우 업무 시간에는
-                이용 건별 별도 결제 없이 편리하게 업무용 차량을 이용할 수
-                있고(대여 요금은 소속 회사에서 부담), 비업무 시간에는 출퇴근 및
-                주말 여가 개인용 차량을 이용할 수 있습니다.
-              </span>
-              {children}
-            </p>
+          <motion.div className="inner">
+            {/* `dangerouslySetInnerHTML`을 사용하여 HTML answer 렌더링 */}
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </motion.div>
         </motion.div>
       )}
@@ -128,10 +123,12 @@ const Panel = ({ children }) => {
 };
 
 // 메인 컴포넌트에 추가
+Accordion.Item = Item;
 Accordion.Header = Header;
 Accordion.Panel = Panel;
 
 // DisplayName 설정
+Item.displayName = 'Accordion.Item';
 Header.displayName = 'Accordion.Header';
 Panel.displayName = 'Accordion.Panel';
 
