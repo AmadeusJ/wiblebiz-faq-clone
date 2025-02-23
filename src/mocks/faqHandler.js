@@ -50,9 +50,7 @@ export const faqHandler = http.get('/api/faq', async ({ request }) => {
   }
 
   const totalRecord = faqs.length;
-  console.log('current faqs: ', faqs, faqs.length);
   const pagedItems = faqs.slice(offset, offset + limit);
-  console.log('pagedItems: ', pagedItems, pagedItems.length);
   const prevOffset = offset - limit < 0 ? 0 : offset - limit;
   const nextOffset = offset + limit < totalRecord ? offset + limit : 0;
 

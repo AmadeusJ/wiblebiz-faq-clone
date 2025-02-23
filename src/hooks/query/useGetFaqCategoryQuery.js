@@ -14,7 +14,6 @@ export const useGetFaqCategoryQuery = (tab = 'CONSULT') => {
     queryFn: () => getFaqCategory(tab),
     // 필요한 경우 응답 데이터에서 원하는 부분을 선택
     select: (data) => {
-      console.log('🔍 훅 응답 faqCategory:', data);
       return data;
     },
     // placeholderData를 통해 로딩 전 기본값 제공 (빈 배열 등)

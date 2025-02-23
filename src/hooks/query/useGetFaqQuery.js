@@ -29,7 +29,6 @@ export const useGetFaqQuery = ({
       return offset + limit < totalRecord ? nextOffset : undefined;
     },
     select: (data) => {
-      console.log('🔍 훅 응답 faq:', data);
       return {
         pageInfo: data.pages[data.pages.length - 1]?.pageInfo || {},
         items: data.pages.flatMap((page) => page.items), // 여러 페이지의 데이터를 합쳐서 반환

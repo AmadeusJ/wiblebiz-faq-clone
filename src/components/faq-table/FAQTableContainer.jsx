@@ -36,15 +36,12 @@ const FAQTableContainer = () => {
 
   // 검색 핸들러
   const handleSearch = useCallback((value) => {
-    console.log('🔍 검색 실행!');
-    console.log(faqCategoryData, faqQueryData);
     setHasSearch(true);
     setSearchValue(value);
   }, []);
 
   useEffect(() => {
     if (!hasSearch) {
-      console.log('🔍 hasSearch: ', hasSearch);
       setSelectedFilter('All');
       setSearchValue('');
       setActiveIndex(-1);
@@ -68,7 +65,6 @@ const FAQTableContainer = () => {
 
   // 카테고리 변경 핸들러
   const handleCategoryChange = useCallback((category) => {
-    console.log('🔍 카테고리 변경 실행! ', category);
     setSelectedCategory(category);
     setSelectedFilter('All');
     setHasSearch(false);
@@ -81,7 +77,6 @@ const FAQTableContainer = () => {
 
   // 필터 변경 핸들러
   const handleFilterChange = useCallback((filter) => {
-    console.log('🔍 필터 변경 실행! ', filter);
     setSelectedFilter(filter);
     resetFaqData();
     setHasSearch(false);

@@ -7,7 +7,7 @@ const Process = ({ title, processItems = [] }) => {
         {processItems.map((item, index) => (
           <ProcessItem
             className={`process-${index + 1}`}
-            key={item.id}
+            key={`process-${item.id}`}
             item={item}
           />
         ))}

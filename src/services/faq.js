@@ -5,7 +5,6 @@ export const getFaqCategory = async (tab = 'CONSULT') => {
   const response = await apiClient.get('/faq/category', {
     params: { tab },
   });
-  console.log('🔍 서버 응답 faqCategory:', response);
   return response.data;
 };
 
@@ -28,6 +27,5 @@ export const getFaq = async ({
   };
 
   const response = await apiClient.get('/faq', { params });
-  console.log('🔍 서버 응답 faq:', response);
   return response.data;
 };

@@ -13,7 +13,6 @@ import { RouterProvider } from 'react-router-dom';
 
 // Mock Service Worker 시작
 worker.start().then(() => {
-  console.log('Mock Service Worker 시작');
   // 렌더링
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>

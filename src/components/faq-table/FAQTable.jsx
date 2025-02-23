@@ -70,7 +70,6 @@ const FAQTableCategoryTab = ({ children, value, onClick = () => {} }) => {
 const FAQTableSearch = ({ onSearch, children, setHasSearch = () => {} }) => {
   const { searchValue, setSearchValue } = useFAQTableContext();
   const handleSearch = () => {
-    console.log('🔍 searchValue:', searchValue);
     onSearch(searchValue);
     setHasSearch(true);
   };
@@ -132,7 +131,7 @@ const FAQTableFilter = ({ filters = [], onFilterChange = () => {} }) => {
       />
       {filters.map((filter) => (
         <FAQTable.FilterItem
-          key={filter.id}
+          key={`filter-${filter.categoryID}`}
           value={filter.categoryID}
           label={filter.name}
           onClick={() => handleFilterChange(filter.categoryID)}
@@ -160,8 +159,6 @@ const FAQTableFilterItem = ({
 };
 
 const FAQTableFaqList = ({ faqs = [], activeIndex, setActiveIndex }) => {
-  console.log('🔍 faqs:', faqs);
-
   return (
     <AccordionPresenter
       items={faqs}
