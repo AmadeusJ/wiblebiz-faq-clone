@@ -2,6 +2,7 @@ import { useGetFaqCategoryQuery } from '@/hooks/query/useGetFaqCategoryQuery';
 import { useGetFaqQuery } from '@/hooks/query/useGetFaqQuery';
 import { queryClient } from '@/services/apiClient';
 import { useCallback, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import FAQTablePresenter from './FAQTablePresenter';
 
 const FAQTableContainer = () => {
@@ -70,6 +71,9 @@ const FAQTableContainer = () => {
     console.log('🔍 카테고리 변경 실행! ', category);
     setSelectedCategory(category);
     setSelectedFilter('All');
+    setHasSearch(false);
+    setSearchValue('');
+    setActiveIndex(-1);
     resetFaqData();
     refetchFaqCategory();
     refetchFaq();
@@ -80,7 +84,10 @@ const FAQTableContainer = () => {
     console.log('🔍 필터 변경 실행! ', filter);
     setSelectedFilter(filter);
     resetFaqData();
+    setHasSearch(false);
+    setSearchValue('');
     setActiveIndex(-1);
+    resetFaqData();
     refetchFaq();
   }, []);
 
@@ -97,23 +104,34 @@ const FAQTableContainer = () => {
     setFaqData(null);
   }, []);
 
+  // 활성화된 탭 선택
+  const activeTab = selectedCategory === 'CONSULT' ? '도입' : '상품';
+
   return (
-    <FAQTablePresenter
-      onSearch={handleSearch}
-      onCategoryChange={handleCategoryChange}
-      onFilterChange={handleFilterChange}
-      selectedCategory={selectedCategory}
-      selectedFilter={selectedFilter}
-      filters={faqCategoryData}
-      faqs={faqData?.items}
-      fetchNextPage={fetchNextPage}
-      hasNextPage={hasNextPage}
-      activeIndex={activeIndex}
-      setActiveIndex={setActiveIndex}
-      hasSearch={hasSearch}
-      setHasSearch={setHasSearch}
-      totalRecord={faqData?.pageInfo?.totalRecord}
-    />
+    <>
+      {/* Helmet 설정 */}
+      <Helmet>
+        <title>{`서비스 ${activeTab} FAQ | 위블 비즈(Wible Biz) - 친환경 모빌리티 서비스`}</title>
+      </Helmet>
+
+      {/* FAQTablePresenter 컴포넌트 */}
+      <FAQTablePresenter
+        onSearch={handleSearch}
+        onCategoryChange={handleCategoryChange}
+        onFilterChange={handleFilterChange}
+        selectedCategory={selectedCategory}
+        selectedFilter={selectedFilter}
+        filters={faqCategoryData}
+        faqs={faqData?.items}
+        fetchNextPage={fetchNextPage}
+        hasNextPage={hasNextPage}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        hasSearch={hasSearch}
+        setHasSearch={setHasSearch}
+        totalRecord={faqData?.pageInfo?.totalRecord}
+      />
+    </>
   );
 };
 
