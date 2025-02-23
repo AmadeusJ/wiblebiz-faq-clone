@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import FAB from './FAB';
 
-const FABContainer = ({ onClick }) => {
+const FABContainer = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -13,7 +13,14 @@ const FABContainer = ({ onClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <FAB isVisible={isVisible} onClick={onClick} />;
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  return <FAB isVisible={isVisible} onClick={handleClick} />;
 };
 
 export default FABContainer;
