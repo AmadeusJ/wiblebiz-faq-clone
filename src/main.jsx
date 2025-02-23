@@ -1,8 +1,7 @@
-import router from '@/router';
-// import GlobalStyles from '@/styles/GlobalStyles';
 import { worker } from '@/mocks/browser';
+import router from '@/router';
 import { queryClient } from '@/services/apiClient';
-import WibleBizStyles from '@/styles/WibleBizStyles';
+import globalStyles from '@/styles/globalStyles';
 import theme from '@/styles/theme';
 import { Global, ThemeProvider } from '@emotion/react';
 import { QueryClientProvider } from '@tanstack/react-query';
@@ -20,7 +19,7 @@ worker.start().then(() => {
       <QueryClientProvider client={queryClient}>
         <HelmetProvider>
           <ThemeProvider theme={theme}>
-            <Global styles={WibleBizStyles} />
+            <Global styles={globalStyles} />
             <RouterProvider router={router} />
           </ThemeProvider>
         </HelmetProvider>

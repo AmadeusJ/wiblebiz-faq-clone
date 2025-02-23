@@ -1,5 +1,7 @@
+import ContentStyled from './ContentContainer.styled';
+
 const ContentContainer = ({ children }) => {
-  return <div className="content">{children}</div>;
+  return <ContentStyled>{children}</ContentStyled>;
 };
 
 export default ContentContainer;

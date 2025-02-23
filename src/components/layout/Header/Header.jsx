@@ -1,10 +1,24 @@
+import theme from '@/styles/theme';
 import { useNavigate } from 'react-router-dom';
+import HeaderStyled from './Header.styled';
+import HeaderNavStyled from './HeaderNav.styled';
 // Header 컴포넌트
 const Header = ({ children }) => {
   return (
-    <header>
-      <div className="inner">{children}</div>
-    </header>
+    <HeaderStyled>
+      <div
+        css={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          maxWidth: theme.spacing.pxMd.base,
+          height: theme.spacing.pxMd.base,
+          margin: '0 auto',
+        }}
+      >
+        {children}
+      </div>
+    </HeaderStyled>
   );
 };
 
@@ -18,7 +32,7 @@ const Logo = () => {
 const Nav = () => {
   const navigate = useNavigate();
   return (
-    <nav>
+    <HeaderNavStyled>
       <ul>
         <li>
           <a onClick={() => navigate('/')}>서비스 소개</a>
@@ -33,7 +47,7 @@ const Nav = () => {
           <a onClick={() => navigate('/')}>상담문의</a>
         </li>
       </ul>
-    </nav>
+    </HeaderNavStyled>
   );
 };
 

@@ -1,5 +1,7 @@
+import LayoutContainerStyled from './LayoutContainer.styled';
+
 const LayoutContainer = ({ children }) => {
-  return <div className="container">{children}</div>;
+  return <LayoutContainerStyled>{children}</LayoutContainerStyled>;
 };
 
 export default LayoutContainer;

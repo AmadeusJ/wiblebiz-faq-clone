@@ -1,9 +1,11 @@
 import Icon from '@/components/ui/Icon';
+import InquiryStyled from './Inquiry.styled';
+import InquiryItemStyled from './InquiryItem.styled';
 const Inquiry = ({ title, inquiryItems = [] }) => {
   return (
     <>
       {title && <h2 className="heading-2">{title}</h2>}
-      <div className="inquiry-info">
+      <InquiryStyled>
         {inquiryItems.map((item, index) => (
           <InquiryItem
             key={index}
@@ -14,18 +16,17 @@ const Inquiry = ({ title, inquiryItems = [] }) => {
             {item?.title}
           </InquiryItem>
         ))}
-      </div>
+      </InquiryStyled>
     </>
   );
 };
 
 const InquiryItem = ({ children, icon, ...props }) => {
   return (
-    <a className="btn-xxlg btn-tertiary" {...props}>
-      {/* {icon && <i className={`ic ${icon}`}></i>} */}
-      <Icon name={icon} />
+    <InquiryItemStyled className="btn-xxlg btn-tertiary" {...props}>
+      {icon && <Icon name={icon} />}
       <span>{children}</span>
-    </a>
+    </InquiryItemStyled>
   );
 };
 

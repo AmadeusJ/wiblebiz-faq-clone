@@ -1,18 +1,11 @@
-const breakpoints = {
-  mobile: '743px',
-  tablet: '1023px',
-  laptop: '1439px',
-  desktop: '1440px',
-};
-
 const theme = {
-  breakpoints,
-  maxWidth: '1660px',
-
-  // Colors
+  breakpoints: {
+    sm: '743px', // Mobile
+    md: '1023px', // Tablet
+    lg: '1439px', // Small Desktop
+    xl: '1440px', // Large Desktop
+  },
   colors: {
-    white: '#fff',
-    black: '#000',
     mint900: '#70d7bf',
     mint700: '#8ddfcc',
     midnight900: '#05141f',
@@ -28,74 +21,155 @@ const theme = {
     gray50: '#f6f6f9',
     gray10: '#f8f8f8',
   },
-
-  // Font Sizes & Line Heights
   typography: {
-    lineHeight: {
-      sm: 1.4,
-      md: 1.6,
-      lg: 1.8,
-    },
-    heading: {
-      h1: { base: '56px', sm: '18px', md: '40px', lg: '48px' },
-      h2: { base: '24px', sm: '20px' },
-      h4: { base: '20px', sm: '16px' },
-      info: '24px',
-    },
-    fontSize: {
-      sm: '14px',
-      md: '16px',
-      lg: '18px',
-    },
+    lineHeightSm: '1.4',
+    lineHeightMd: '1.6',
+    lineHeightLg: '1.8',
+    fontSizeBase: '16px',
+    fontFamily: 'Kia Signature Fix, Arial, sans-serif, Helvetica;',
   },
-
-  // Spacing
-  spacing: {
-    sm: '8px',
-    md: '16px',
-    lg: '24px',
-    xlg: '32px',
-    box: '48px',
-    box2: '120px',
-  },
-
-  // Button Sizes
-  buttons: {
-    md: '48px',
-    xlg: '56px',
-    xxlg: '80px',
-  },
-
-  // Icons
-  icons: {
-    sm: '20px',
-    md: '24px',
-    lg: '32px',
-    xlg: '40px',
-    xxlg: '64px',
-  },
-
-  // Layout Sizes
-  layout: {
-    headerHeight: '80px',
-    footerHeight: '176px',
-    sidePadding: '48px',
-    bottomPadding: '96px',
-    searchBarWidth: '480px',
-    headerMaxWidth: '1200px',
-  },
-
-  // Transitions
-  transitions: {
+  transition: {
     primary: 'cubic-bezier(1, 0, 0.2, 1)',
   },
-
-  // Responsive styles
-  responsive: {
-    mobile: `@media (max-width: ${breakpoints.mobile})`,
-    tablet: `@media (min-width: 744px) and (max-width: ${breakpoints.tablet})`,
-    laptop: `@media (min-width: 1024px) and (max-width: ${breakpoints.laptop})`,
-    desktop: `@media (min-width: ${breakpoints.desktop})`,
+  spacing: {
+    pxMd: { base: '20px', sm: '16px', md: '16px', lg: '20px', xl: '24px' },
+    pxLg: { base: '40px', sm: '24px', md: '32px', lg: '40px', xl: '48px' },
+    pxXLg: { base: '64px', sm: '32px', md: '56px', lg: '64px', xl: '76px' },
+  },
+  components: {
+    inputMd: { base: '48px', sm: '40px', md: '48px', lg: '48px', xl: '56px' },
+    inputMdFontSize: {
+      base: '16px',
+      sm: '16px',
+      md: '16px',
+      lg: '14px',
+      xl: '18px',
+    },
+    textareaMd: {
+      base: '140px',
+      sm: '140px',
+      md: '140px',
+      lg: '140px',
+      xl: '200px',
+    },
+    btnMd: { base: '48px', sm: '36px', md: '44px', lg: '48px', xl: '48px' },
+    btnXLg: { base: '56px', sm: '48px', md: '52px', lg: '56px', xl: '56px' },
+    btnXLg2: { base: '56px', sm: '40px', md: '48px', lg: '56px', xl: '56px' }, // ✅ 추가됨
+    btnXXLg: { base: '80px', sm: '72px', md: '80px', lg: '80px', xl: '80px' },
+    btnXXLgSize: {
+      base: '18px',
+      sm: '16px',
+      md: '16px',
+      lg: '18px',
+      xl: '18px',
+    },
+    iconSm: { base: '24px', sm: '20px', md: '24px', lg: '24px', xl: '24px' },
+    iconMd: { base: '32px', sm: '24px', md: '28px', lg: '32px', xl: '32px' },
+    iconLg: { base: '48px', sm: '32px', md: '32px', lg: '48px', xl: '48px' },
+    iconXLg: { base: '48px', sm: '40px', md: '48px', lg: '48px', xl: '56px' },
+    iconXLg2: { base: '56px', sm: '32px', md: '48px', lg: '56px', xl: '64px' },
+    iconXXLg: { base: '80px', sm: '64px', md: '80px', lg: '80px', xl: '96px' },
+  },
+  layout: {
+    maxWidth: '1660px',
+    headerHeight: {
+      base: '80px',
+      sm: '56px',
+      md: '56px',
+      lg: '80px',
+      xl: '80px',
+    },
+    footerHeight: {
+      base: '176px',
+      sm: '284px',
+      md: '296px',
+      lg: '176px',
+      xl: '176px',
+    },
+    sidePadding: {
+      base: '48px',
+      sm: '24px',
+      md: '48px',
+      lg: '48px',
+      xl: '48px',
+    },
+    bottomPadding: {
+      base: '80px',
+      sm: '80px',
+      md: '80px',
+      lg: '80px',
+      xl: '96px',
+    },
+  },
+  typographySize: {
+    heading2: { base: '24px', sm: '20px', md: '24px', lg: '24px', xl: '24px' },
+    heading2Margin: {
+      base: '48px 0 24px',
+      sm: '48px 0 16px',
+      md: '48px 0 24px',
+      lg: '48px 0 24px',
+      xl: '64px 0 24px',
+    },
+    heading4: { base: '18px', sm: '16px', md: '18px', lg: '18px', xl: '20px' },
+    heading4Margin: {
+      base: '24px 0 8px',
+      sm: '20px 0 4px',
+      md: '24px 0 8px',
+      lg: '24px 0 8px',
+      xl: '28px 0 12px',
+    },
+    tabFontSize: {
+      base: '20px',
+      sm: 'var(--font-size)',
+      md: 'var(--font-size)',
+      lg: '20px',
+      xl: '20px',
+    },
+    searchBarWidth: {
+      base: '480px',
+      sm: '100%',
+      md: '400px',
+      lg: '480px',
+      xl: '480px',
+    },
+  },
+  board: {
+    headPadding: {
+      base: '28px 32px',
+      sm: '16px 0',
+      md: '24px 24px',
+      lg: '28px 32px',
+      xl: '32px 40px',
+    },
+    bodyPaddingV: {
+      base: 'var(--px-lg)',
+      sm: 'var(--px-lg)',
+      md: 'var(--px-lg)',
+      lg: 'var(--px-lg)',
+      xl: 'var(--px-lg)',
+    },
+    bodyPaddingH: { base: '32px', sm: '0', md: '24px', lg: '32px', xl: '40px' },
+    headingFontSize: {
+      base: '24px',
+      sm: '16px',
+      md: '20px',
+      lg: '24px',
+      xl: '28px',
+    },
+    mediaMaxWidth: {
+      base: '960px',
+      sm: '100%',
+      md: '100%',
+      lg: '100%',
+      xl: '960px',
+    },
+    footerColIndent: {
+      base: '32px',
+      sm: '12px',
+      md: '24px',
+      lg: '32px',
+      xl: '32px',
+    },
   },
 };
 
