@@ -1,3 +1,4 @@
+import FABContainer from '@/components/global-ui/FAB';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import LayoutContainer from '@/components/layout/LayoutContainer';
@@ -23,6 +24,9 @@ const DefaultLayout = () => {
       <LayoutContainer>
         <Outlet />
       </LayoutContainer>
+
+      {/* FAB 컴포넌트 설정 */}
+      <FABContainer />
 
       {/* Footer 컴포넌트 설정 */}
       <Footer>

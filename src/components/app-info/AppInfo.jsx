@@ -20,7 +20,7 @@ const AppInfoTitle = () => {
   return (
     <h2>
       <em>위블 비즈 App</em>
-      &quot; 지금 만나보세요!&quot;
+      &nbsp;지금 만나보세요!
     </h2>
   );
 };

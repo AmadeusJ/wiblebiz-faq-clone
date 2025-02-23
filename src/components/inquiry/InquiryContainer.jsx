@@ -17,9 +17,10 @@ const InquiryContainer = () => {
     },
     {
       title: '카톡으로 문의하기',
-      href: '#',
+      href: 'https://pf.kakao.com/_xfLxjdb',
       target: '_blank',
       icon: 'talk',
+      em: 'ID: Wible Biz(위블 비즈)',
     },
   ];
   return <InquiryPresenter title={title} inquiryItems={inquiryItems} />;

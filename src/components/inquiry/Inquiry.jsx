@@ -14,6 +14,7 @@ const Inquiry = ({ title, inquiryItems = [] }) => {
             icon={item?.icon}
           >
             {item?.title}
+            {item?.em && <em>{item?.em}</em>}
           </InquiryItem>
         ))}
       </InquiryStyled>
