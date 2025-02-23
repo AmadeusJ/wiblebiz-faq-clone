@@ -42,11 +42,16 @@ const FAQTablePresenter = ({
       {/* 필터 영역 */}
       <FAQTable.Filter filters={filters} onFilterChange={onFilterChange} />
       {/* 질문 목록 영역 */}
-      <FAQTable.FaqList
-        faqs={faqs}
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-      />
+      {faqs?.length > 0 ? (
+        <FAQTable.FaqList
+          faqs={faqs}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+      ) : (
+        // 검색 결과가 없을 경우
+        <FAQTable.NoResult />
+      )}
       {/* 더보기 버튼 */}
       <FAQTable.LoadMore
         fetchNextPage={fetchNextPage}

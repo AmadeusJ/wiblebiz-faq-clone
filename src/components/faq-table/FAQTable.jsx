@@ -1,7 +1,7 @@
 import AccordionPresenter from '@/components/ui/Accordion';
+import Icon from '@/components/ui/Icon';
 import InputField from '@/components/ui/InputField';
 import { createContext, useContext, useState } from 'react';
-
 // Context 생성
 const FAQTableContext = createContext();
 
@@ -108,6 +108,7 @@ const FAQTableSearchInfo = ({ totalRecord = 0, setHasSearch = () => {} }) => {
         검색 결과 총 <em>{totalRecord}</em>건
       </h2>
       <button type="button" className="init" onClick={handleReset}>
+        <Icon name="init" />
         검색초기화
       </button>
     </div>
@@ -182,6 +183,15 @@ const FAQTableLoadMore = ({ fetchNextPage, hasNextPage }) => {
   );
 };
 
+const FAQTableNoResult = () => {
+  return (
+    <div className="no-data">
+      <Icon name="nodata" />
+      <p>검색 결과가 없습니다.</p>
+    </div>
+  );
+};
+
 // 메인 컴포넌트에 추가
 FAQTable.Category = FAQTableCategory;
 FAQTable.CategoryTab = FAQTableCategoryTab;
@@ -191,6 +201,7 @@ FAQTable.Filter = FAQTableFilter;
 FAQTable.FilterItem = FAQTableFilterItem;
 FAQTable.FaqList = FAQTableFaqList;
 FAQTable.LoadMore = FAQTableLoadMore;
+FAQTable.NoResult = FAQTableNoResult;
 // DisplayName 설정
 FAQTableCategory.displayName = 'FAQTable.Category';
 FAQTableCategoryTab.displayName = 'FAQTable.CategoryTab';
@@ -200,4 +211,5 @@ FAQTableFilter.displayName = 'FAQTable.Filter';
 FAQTableFilterItem.displayName = 'FAQTable.FilterItem';
 FAQTableFaqList.displayName = 'FAQTable.FaqList';
 FAQTableLoadMore.displayName = 'FAQTable.LoadMore';
+FAQTableNoResult.displayName = 'FAQTable.NoResult';
 export default FAQTable;

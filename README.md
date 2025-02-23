@@ -1,6 +1,6 @@
 ### 🛠 **Wiblebiz FAQ Clone**
 
-✅ 최신 버전 배포 주소: [🔗 https://wiblebiz-faq-clone.vercel.app/](https://wiblebiz-faq-clone.vercel.app/)
+✅ 최신 버전 배포 주소: [🔗 https://wiblebiz-faq-clone.vercel.app/](https://wiblebiz-faq-clone.vercel.app/){:target="\_blank"}
 
 ---
 
