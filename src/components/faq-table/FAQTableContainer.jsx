@@ -104,14 +104,13 @@ const FAQTableContainer = () => {
     setFaqData(null);
   }, []);
 
-  // 활성화된 탭 선택
-  const activeTab = selectedCategory === 'CONSULT' ? '도입' : '상품';
-
   return (
     <>
       {/* Helmet 설정 */}
       <Helmet>
-        <title>{`서비스 ${activeTab} FAQ | 위블 비즈(Wible Biz) - 친환경 모빌리티 서비스`}</title>
+        <title>{`서비스 ${
+          selectedCategory === 'CONSULT' ? '도입' : '상품'
+        } FAQ | 위블 비즈(Wible Biz) - 친환경 모빌리티 서비스`}</title>
       </Helmet>
 
       {/* FAQTablePresenter 컴포넌트 */}
